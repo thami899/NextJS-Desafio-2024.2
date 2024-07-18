@@ -5,6 +5,3 @@ Neste pré-projeto se encontra um arquivo "seed.ts" onde os desenvolvedores tem 
 
 Propositos do desafio
 Desenvolvimento de um site expositivo no formato e-commerce/sistema de vendas com tema livre. Na aplicação deve ter uma página inicial, página de contato, página de login, página de membros e uma página de gerenciamento que deve ser possível fazer apenas o gerenciamento dos membros da Empresa.
-
-A utilização de Typescript, TailwindCSS e Prisma são obrigatórias durante o desenvolvimento.
->>>>>>> a191fd68f51e90c057e52e16fba88e186c529806
