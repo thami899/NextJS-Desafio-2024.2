@@ -3,72 +3,47 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  const products = [
+  const cryptoProducts = [
     {
-      title: 'Wireless Mouse',
-      description: 'A smooth and responsive wireless mouse.',
-      price: 29.99,
+      title: 'MANA',
+      description: 'Decentraland',
+      price: 0.35871342,
       createdAt: new Date(),
     },
     {
-      title: 'Mechanical Keyboard',
-      description: 'A durable mechanical keyboard with RGB lighting.',
-      price: 89.99,
+      title: 'ICP',
+      description: 'Internet Computer',
+      price: 10.16,
       createdAt: new Date(),
     },
     {
-      title: 'Noise Cancelling Headphones',
-      description: 'Comfortable headphones with active noise cancelling.',
-      price: 199.99,
+      title: 'KCS',
+      description: 'KuCoin Token',
+      price: 9.88,
       createdAt: new Date(),
     },
     {
-      title: '4K Monitor',
-      description: 'A high-resolution 4K monitor for professional use.',
-      price: 399.99,
+      title: 'ORDI',
+      description: 'Ordinals',
+      price: 39.4,
       createdAt: new Date(),
     },
     {
-      title: 'USB-C Hub',
-      description: 'A versatile USB-C hub with multiple ports.',
-      price: 49.99,
-      createdAt: new Date(),
-    },
-    {
-      title: 'Portable SSD',
-      description: 'A fast and portable SSD with 1TB capacity.',
-      price: 129.99,
-      createdAt: new Date(),
-    },
-    {
-      title: 'Bluetooth Speaker',
-      description: 'A compact Bluetooth speaker with excellent sound quality.',
-      price: 59.99,
-      createdAt: new Date(),
-    },
-    {
-      title: 'Smartwatch',
-      description: 'A stylish smartwatch with fitness tracking features.',
-      price: 149.99,
-      createdAt: new Date(),
-    },
-    {
-      title: 'Gaming Chair',
-      description: 'An ergonomic gaming chair with lumbar support.',
-      price: 249.99,
-      createdAt: new Date(),
-    },
-    {
-      title: 'Webcam',
-      description: 'A high-definition webcam for video conferencing.',
-      price: 79.99,
+      title: 'SOL',
+      description: 'Solana',
+      price: 169.53,
       createdAt: new Date(),
     },
   ];
 
-  for (const product of products) {
+  for (const product of cryptoProducts) {
     await prisma.product.create({
-      data: product,
+      data: {
+        title: product.title,
+        description: product.description,
+        price: product.price,
+        createdAt: product.createdAt,
+      },
     });
   }
 }

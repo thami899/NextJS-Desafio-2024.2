@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Estilos Globais */
+body {
+  background-color: #0E0B16; /* Fundo principal */
+  color: white; /* Texto branco por padrão */
+}
+
+/* Estilo para a Navbar */
+.navbar {
+  background-color: white; /* Fundo branco para a Navbar */
+  color: #0E0B16; /* Texto escuro na Navbar */
+}
+
+/* Estilo para o Footer */
+.footer {
+  background-color: white; /* Fundo branco para o Footer */
+  color: #0E0B16; /* Texto escuro no Footer */
+}
+
+/* Estilo para as Publicações */
+.publication-card {
+  background-color: white; /* Fundo branco para as publicações */
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  color: black; /* Texto preto nas publicações */
+  margin-bottom: 20px;
+}
+
