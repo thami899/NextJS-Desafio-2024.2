@@ -26,23 +26,27 @@ export async function deleteCripto(id: number | undefined) {
     redirect("/listadeproduto");
 }
 
-export async function criarCripto(variavel: { title: string, price: string, description: string }) {
-    const { title, price, description } = variavel;
-
+export async function criarCripto(data:FormData) {
+    const title = data.get("title") as string;
+    const description = data.get("description") as string;
+    const priceStr = data.get("price") as string;
+    const price = Math.ceil(parseFloat(priceStr));
     await prisma.product.create({
         data: {
             title,
-            price: parseFloat(price), 
+            price, 
             description,
         },
     });
     redirect("/listadeproduto");
 }
 
-export async function editarCripto(id: number | undefined, formData: { title?: string, price?: string, description?: string }) {
-    if (id === undefined) throw new Error("ID inválido");
+export async function editarCripto(id: number | undefined,data:FormData) {
+    const title:string|undefined = data.get("title") as string|undefined;
+    const description:string|undefined = data.get("description") as string|undefined;
+    const priceStr = data.get("price") as string;
+    const price = Math.ceil(parseFloat(priceStr));
 
-    const { title, price, description } = formData;
 
     if (title) {
         await prisma.product.update({
@@ -54,7 +58,7 @@ export async function editarCripto(id: number | undefined, formData: { title?: s
     if (price) {
         await prisma.product.update({
             where: { id },
-            data: { price: parseFloat(price) },  
+            data: { price},  
         });
     }
 
@@ -80,4 +84,35 @@ export async function visualizarCripto(id: number | undefined) {
         }
     });
     return moeda;
+}
+
+export async function Naoageuntomaisprodutos(currentPage:number){
+    const maluco=(currentPage-1)*6;
+     const produtos= await prisma.product.findMany({
+        orderBy:{
+            id:"asc",
+
+        },
+        take:6,
+        skip:maluco,
+     });
+     const louco=await prisma.product.count();
+     const totalPages= Math.ceil(louco/6);
+     return{produtos,totalPages};
+
+}
+export async function pegaprodutoporid(id:number|undefined){
+    const produto = await prisma.product.findUnique({
+        where:{
+            id
+        },
+        select:{
+            id:true,
+            title:true,
+            price:true,
+            description:true,
+            createdAt:true,
+        }
+    })
+    return produto;
 }

@@ -28,6 +28,9 @@ const Header = () => {
           <Link href="/paginadeproduto" className="text-[#0E0B16] hover:text-gray-700">
             Produtos
           </Link>
+          <Link href="/listadeproduto" className="text-[#0E0B16] hover:text-gray-700">
+              Lista de produto
+            </Link>
         </nav>
 
         {/* Mobile Hamburger Menu */}
@@ -73,6 +76,9 @@ const Header = () => {
             </Link>
             <Link href="/paginadeproduto" className="text-[#0E0B16] hover:text-gray-700">
               Produtos
+            </Link>
+            <Link href="/listadeproduto" className="text-[#0E0B16] hover:text-gray-700">
+              Lista de produto
             </Link>
             <Link href="/login" className="text-[#0E0B16]">
               Log In

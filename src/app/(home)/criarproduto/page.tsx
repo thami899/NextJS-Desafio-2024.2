@@ -1,19 +1,22 @@
 "use client";
 
 import React from 'react';
+import { criarCripto } from '../../../../actions/actions';
 
 export default function CriarProduto() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#0E0B16] p-4 space-y-10">
       <div className="w-full max-w-md bg-[#0E0B16] p-6 rounded-lg border border-gray-700 shadow-lg shadow-gray-800">
         <h1 className="text-3xl font-bold text-white mb-6">Criar produto</h1>
-        <form>
+        <form action={criarCripto}>
+
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-300 mb-2" htmlFor="titulo">
               Título
             </label>
             <input
-              id="titulo"
+            name="title"
+              id="title"
               type="text"
               className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded text-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Digite o título"
@@ -24,8 +27,10 @@ export default function CriarProduto() {
             <label className="block text-sm font-medium text-gray-300 mb-2" htmlFor="conteudo">
               Conteúdo
             </label>
+
             <input
-              id="conteudo"
+            name="description"
+              id="description"
               type="text"
               className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded text-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Digite o conteúdo"
@@ -34,13 +39,14 @@ export default function CriarProduto() {
 
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-300 mb-2" htmlFor="status">
-              Status
+              preco
             </label>
             <input
-              id="status"
+            name="price"
+              id="price"
               type="text"
               className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded text-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
-              placeholder="Digite o status"
+              placeholder="Digite o preco"
             />
           </div>
 

@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default function Adicionar({id}:{id:number|undefined}){
+export default function Adicionar(){
     return(
         <Link href={`/criarproduto`}>
         <button 
